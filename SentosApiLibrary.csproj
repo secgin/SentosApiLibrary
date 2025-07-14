@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <!-- NuGet Metadata -->
+    <PackageId>SentosApiLibrary</PackageId>
+    <Version>1.0.0</Version>
+    <!-- Her yeni yayın için artır -->
+    <Authors>Seçgin</Authors>
+    <Company>Seçgin</Company>
+    <Description>Sentos API için .NET kütüphanesi.</Description>
+    <PackageTags>sentos;api</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/secgin/SentosApiLibrary</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/secgin/SentosApiLibrary</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include=".github\workflows\nuget-publish.yml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>
