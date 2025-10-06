@@ -1,6 +1,8 @@
 using SentosApiLibrary.Abstracts;
 using SentosApiLibrary.Api.Categories;
 using SentosApiLibrary.Api.Categories.Abstracts;
+using SentosApiLibrary.Api.Platforms;
+using SentosApiLibrary.Api.Platforms.Abstracts;
 using SentosApiLibrary.Api.Products;
 using SentosApiLibrary.Api.Products.Abstracts;
 using SentosApiLibrary.Api.Warehouses;
@@ -19,7 +21,9 @@ namespace SentosApiLibrary
 
         private readonly Lazy<ICategoryService> _categoryService;
 
-        private readonly Lazy<IWarehouseService> _warehouseService;       
+        private readonly Lazy<IWarehouseService> _warehouseService;
+
+        private readonly Lazy<IPlatformService> _platformService;
 
         public SentosClient(IConfig config)
         {
@@ -30,13 +34,14 @@ namespace SentosApiLibrary
             {
                 _categoryService = new Lazy<ICategoryService>(() => new MockCategoryService(_config));
                 _warehouseService = new Lazy<IWarehouseService>(() => new MockWarehouseService());
-                _productService = new Lazy<IProductService>(() => new MockProductService(_config));
+                _productService = new Lazy<IProductService>(() => new MockProductService(_config));               
             }
             else
             {
                 _categoryService = new Lazy<ICategoryService>(() => new CategoryService(_httpClientService));
                 _warehouseService = new Lazy<IWarehouseService>(() => new WarehouseService(_httpClientService));
                 _productService = new Lazy<IProductService>(() => new ProductService(_httpClientService));
+                _platformService = new Lazy<IPlatformService>(() => new PlatformService(_httpClientService));   
             }
         }
 
@@ -45,5 +50,7 @@ namespace SentosApiLibrary
         public IWarehouseService Warehouse => _warehouseService.Value;
 
         public IProductService Product => _productService.Value;
+
+        public IPlatformService Platform => _platformService.Value;
     }
 }

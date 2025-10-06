@@ -1,4 +1,5 @@
 using SentosApiLibrary.Api.Categories.Abstracts;
+using SentosApiLibrary.Api.Platforms.Abstracts;
 using SentosApiLibrary.Api.Products.Abstracts;
 using SentosApiLibrary.Api.Warehouses.Abstracts;
 
@@ -11,5 +12,7 @@ namespace SentosApiLibrary.Abstracts
         IWarehouseService Warehouse { get; }
 
         IProductService Product { get; }
-    }
+
+        IPlatformService Platform { get; }
+        }
 }
