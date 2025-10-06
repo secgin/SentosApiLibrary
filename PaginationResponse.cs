@@ -5,7 +5,7 @@ namespace SentosApiLibrary
     public class PaginationResponse<T>
     {
         [JsonPropertyName("data")]
-        public IEnumerable<T> Data { get; set; }
+        public IEnumerable<T> Data { get; set; } = [];
 
         [JsonPropertyName("page")]
         public int Page { get; set; }

@@ -34,7 +34,8 @@ namespace SentosApiLibrary
             {
                 _categoryService = new Lazy<ICategoryService>(() => new MockCategoryService(_config));
                 _warehouseService = new Lazy<IWarehouseService>(() => new MockWarehouseService());
-                _productService = new Lazy<IProductService>(() => new MockProductService(_config));               
+                _productService = new Lazy<IProductService>(() => new MockProductService(_config));          
+                _platformService = new Lazy<IPlatformService>(() => new MockPlatformService());
             }
             else
             {
